@@ -1,0 +1,4 @@
+Revise Buttons and Timers
+EventListeners and Intervals
+
+States to hide / reveal textElements
