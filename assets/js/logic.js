@@ -2,13 +2,24 @@ var startButton = document.getElementById("start");
 var submitButton = document.getElementById("submit"); // Prevent default needed
 var timer = document.getElementById("time");
 var startScreen = document.getElementById("start-screen");
+var endScreen = document.getElementById("end-screen");
 var questionWrapper = document.getElementById("questions");
 var questionTitle = document.getElementById("question-title");
 var questionChoices = document.getElementById("choices");
+var finalScore = document.getElementById("final-score")
+var enterInitials = document.getElementById("initials");
+var finalTime = 0;
 var secondsLeft = 60;
 var questionNumber = 0
 let timerInterval;
-var finalScore = 0;
+
+/*var correctAudio = new Audio()
+audio.play();
+
+var incorrectAudio = new Audio();
+audio.play();*/
+
+// Button to start quiz -- Starts the timer; Hides the start screen; Removes the hide state for the questions; starts the questions.
 
 startButton.addEventListener("click", function() {
 
@@ -16,7 +27,6 @@ startButton.addEventListener("click", function() {
         startScreen.classList.add("hide");
         questionWrapper.classList.remove("hide");
         addQuestionTitle();
-        
         // Function to change question title and add choices
 
         // Hide Start Screen state
@@ -24,11 +34,14 @@ startButton.addEventListener("click", function() {
         // revise event.target?             
 })
 
+// Cycles through the array, displaying the questions. 
+
 function addQuestionTitle() {
     
     if(quizQuestions.length === questionNumber) {
         return endGame();
     }
+
     questionTitle.textContent = quizQuestions[questionNumber].question;
     questionChoices.innerHTML = "";
 
@@ -41,14 +54,17 @@ function addQuestionTitle() {
 }
 
 function endGame() {
-    finalScore = secondsLeft;
+    finalTime = secondsLeft;
     clearInterval(timerInterval);
-    
-    // add End screen
-    // Get initials of player and store with high score in scores.js
-    
+    questionWrapper.classList.add("hide");
+    endScreen.classList.remove("hide");
 }
 
+function getScore() {
+   
+}
+
+// Handles buttons to deal with correct / incorrect answers.
 questionChoices.addEventListener("click", questionClickHandler)
 
 function questionClickHandler(event) {
@@ -56,10 +72,12 @@ function questionClickHandler(event) {
 
    if (userAnswer === quizQuestions[questionNumber].correct) {
     // Notify user is correct
+    // play correct.wav
     questionNumber++;
     addQuestionTitle();
    }
    else { 
+    //play incorrect.wav
     secondsLeft -= 5;
     questionNumber++;
     addQuestionTitle();
@@ -73,10 +91,9 @@ function setTimer() {
         timer.textContent = secondsLeft + " seconds left";
 
         if(secondsLeft === 0) {
-            //TODO Function upon timer expires
-            endGame();
+            
             timer.textContent = 0;
-            alert("Times up!")
+            endGame();
         }
     }, 1000)
 }
