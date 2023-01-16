@@ -40,11 +40,12 @@ startButton.addEventListener("click", function() {
 questionChoices.addEventListener("click", questionClickHandler)
 
 submitButton.addEventListener("click", function(){
-    func();
+    getPlayerName();
 })
 
 
-function func() {
+function getPlayerName() {
     var playerName =  enterInitials.value;
     console.log(playerName);
+    localStorage.setItem(playerName, finalTime)
 }
