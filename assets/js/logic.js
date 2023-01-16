@@ -8,16 +8,11 @@ var questionTitle = document.getElementById("question-title");
 var questionChoices = document.getElementById("choices");
 var finalScore = document.getElementById("final-score")
 var enterInitials = document.getElementById("initials");
+var playerName = "";
 var finalTime = 0;
 var secondsLeft = 60;
 var questionNumber = 0
 let timerInterval;
-
-/*var correctAudio = new Audio()
-audio.play();
-
-var incorrectAudio = new Audio();
-audio.play();*/
 
 questionChoices.addEventListener("click", questionClickHandler)
 
@@ -44,46 +39,12 @@ startButton.addEventListener("click", function() {
 
 questionChoices.addEventListener("click", questionClickHandler)
 
-function addQuestionTitle() {
-    
-    if(quizQuestions.length === questionNumber) {
-        questionWrapper.classList.add("hide");
-        return endGame();
-    }
+submitButton.addEventListener("click", function(){
+    func();
+})
 
-    questionTitle.textContent = quizQuestions[questionNumber].question;
-    questionChoices.innerHTML = "";
 
-    for(var i = 0; i < quizQuestions[questionNumber].answers.length; i++) {
-        var btn = document.createElement("button");
-        btn.textContent = quizQuestions[questionNumber].answers[i];
-        questionChoices.append(btn);
-    }
+function func() {
+    var playerName =  enterInitials.value;
+    console.log(playerName);
 }
-
-function endGame() {
-    finalTime = secondsLeft;
-    clearInterval(timerInterval);
-    endScreen.classList.remove("hide");
-}
-
-// Handles buttons to deal with correct / incorrect answers.
-
-function questionClickHandler(event) {
-   var userAnswer = event.target.textContent;    
-
-   if (userAnswer === quizQuestions[questionNumber].correct) {
-    // Notify user is correct
-    // play correct.wav
-    questionNumber++;
-    addQuestionTitle();
-   }
-   else { 
-    //play incorrect.wav
-    secondsLeft -= 5;
-    questionNumber++;
-    addQuestionTitle();
-   }
-}
-
-

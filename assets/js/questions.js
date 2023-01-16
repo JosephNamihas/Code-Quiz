@@ -33,5 +33,46 @@ var quizQuestions = [
 
 ]
 
+function addQuestionTitle() {
+    
+    if(quizQuestions.length === questionNumber) {
+        questionWrapper.classList.add("hide");
+        return endGame();
+    }
 
+    questionTitle.textContent = quizQuestions[questionNumber].question;
+    questionChoices.innerHTML = "";
 
+    for(var i = 0; i < quizQuestions[questionNumber].answers.length; i++) {
+        var btn = document.createElement("button");
+        btn.textContent = quizQuestions[questionNumber].answers[i];
+        questionChoices.append(btn);
+    }
+}
+
+function endGame() {
+    finalTime = secondsLeft;
+    clearInterval(timerInterval);
+    endScreen.classList.remove("hide");
+}
+
+// Handles buttons to deal with correct / incorrect answers.
+
+function questionClickHandler(event) {
+   var userAnswer = event.target.textContent;    
+
+   if (userAnswer === quizQuestions[questionNumber].correct) {
+    questionNumber++;
+    addQuestionTitle();
+   }
+   else { 
+    //play incorrect.wav
+    secondsLeft -= 5;
+    questionNumber++;
+    addQuestionTitle();
+   }
+}
+
+function playAudio(url) {
+    new Audio(url).play();
+  }
