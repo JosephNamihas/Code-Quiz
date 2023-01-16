@@ -1,5 +1,8 @@
 function getScore() {
-   
+   startButton.addEventListener("click", function() {
+    enterInitials = this.textContent;
+    console.log(enterInitials);
+   })
 }
 
 

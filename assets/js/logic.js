@@ -19,24 +19,35 @@ audio.play();
 var incorrectAudio = new Audio();
 audio.play();*/
 
-// Button to start quiz -- Starts the timer; Hides the start screen; Removes the hide state for the questions; starts the questions.
+questionChoices.addEventListener("click", questionClickHandler)
+
+function setTimer() {
+    timerInterval = setInterval(function() {
+        secondsLeft--;
+        timer.textContent = secondsLeft + " seconds left";
+
+        if(secondsLeft === 0) {
+            
+            timer.textContent = 0;
+            endGame();
+        }
+    }, 1000)
+}
 
 startButton.addEventListener("click", function() {
 
     setTimer();
         startScreen.classList.add("hide");
         questionWrapper.classList.remove("hide");
-        addQuestionTitle();
-        // Function to change question title and add choices
-
-        // Hide Start Screen state
-        // Show questionwrapper state
-        // revise event.target?             
+        addQuestionTitle();           
 })
-// Cycles through the array, displaying the questions. 
+
+questionChoices.addEventListener("click", questionClickHandler)
+
 function addQuestionTitle() {
     
     if(quizQuestions.length === questionNumber) {
+        questionWrapper.classList.add("hide");
         return endGame();
     }
 
@@ -53,13 +64,10 @@ function addQuestionTitle() {
 function endGame() {
     finalTime = secondsLeft;
     clearInterval(timerInterval);
-    questionWrapper.classList.add("hide");
     endScreen.classList.remove("hide");
 }
 
-
 // Handles buttons to deal with correct / incorrect answers.
-questionChoices.addEventListener("click", questionClickHandler)
 
 function questionClickHandler(event) {
    var userAnswer = event.target.textContent;    
@@ -78,33 +86,4 @@ function questionClickHandler(event) {
    }
 }
 
-// event is referring to the function event (addEventListener - click)
-function setTimer() {
-    timerInterval = setInterval(function() {
-        secondsLeft--;
-        timer.textContent = secondsLeft + " seconds left";
-
-        if(secondsLeft === 0) {
-            
-            timer.textContent = 0;
-            endGame();
-        }
-    }, 1000)
-}
-
-function incorrectAnswer() {
-    secondsLeft - 10;
-    timer.textContent = secondsLeft + " seconds left";
-}
-
-// NOTES
-
-//setInterval() calls a function at specified intervals
-// an anonymous function is a function without a name. It needs to be assigned to a variable. You often pass anonymous functions as arguments to other functions
-
-/* To keep high scores
-localStorage.setItem(key, value);
-localStorage.setItem("highscore", "var userScore");
-var myNumber = localStorage.getItem ("highscore");
-*/
 

@@ -33,15 +33,5 @@ var quizQuestions = [
 
 ]
 
-var correctAnswers = ["2", "1", "1", "1", "1"];
-
-if (quizQuestions[0].answers[0] === "String") {
-    console.log("True")
-}
-
-
-
-
-// 4 buttons for each question. 
 
 
