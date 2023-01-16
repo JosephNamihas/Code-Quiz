@@ -8,27 +8,27 @@ var quizQuestions = [
     },
 
      {
-        question: "Question2",
-        answers: ["answerOne", "answerTwo", "answerThree", "answerFour"],
-        correct: "answerOne"
+        question: "Which operator is used for 'Greater Than'? ",
+        answers: ["=", ">", "!", "<"],
+        correct: ">"
     },
 
      {
-        question: "Question3",
-        answers: ["answerOne", "answerTwo", "answerThree", "answerFour"],
-        correct: "answerOne"
+        question: "How do you declare a variable in JavaScript?",
+        answers: ["variable Number", "v Number", "var number", "number = var"],
+        correct: "var number"
     },
 
      {
-        question: "Question4",
-        answers: ["answerOne", "answerTwo", "answerThree", "answerFour"],
-        correct: "answerOne"
+        question: "What is function?",
+        answers: ["A data type", "Recyclable snippets of code ", "A math operator", "A 3rd party API"],
+        correct: "Recyclable snippets of code"
     },
 
      {
-        question: "Question5",
-        answers: ["answerOne", "answerTwo", "answerThree", "answerFour"],
-        correct: "answerOne"
+        question: "The 'D' in DOM stands for what?",
+        answers: ["Data", "Declaration", "Document", "Database"],
+        correct: "Document"
     },
 
 ]

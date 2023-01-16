@@ -33,9 +33,7 @@ startButton.addEventListener("click", function() {
         // Show questionwrapper state
         // revise event.target?             
 })
-
 // Cycles through the array, displaying the questions. 
-
 function addQuestionTitle() {
     
     if(quizQuestions.length === questionNumber) {
@@ -50,7 +48,6 @@ function addQuestionTitle() {
         btn.textContent = quizQuestions[questionNumber].answers[i];
         questionChoices.append(btn);
     }
-
 }
 
 function endGame() {
@@ -60,9 +57,6 @@ function endGame() {
     endScreen.classList.remove("hide");
 }
 
-function getScore() {
-   
-}
 
 // Handles buttons to deal with correct / incorrect answers.
 questionChoices.addEventListener("click", questionClickHandler)
