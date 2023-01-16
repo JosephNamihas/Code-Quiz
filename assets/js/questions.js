@@ -32,7 +32,6 @@ var quizQuestions = [
     },
 
 ]
-
 function addQuestionTitle() {
     
     if(quizQuestions.length === questionNumber) {
@@ -73,6 +72,4 @@ function questionClickHandler(event) {
    }
 }
 
-function playAudio(url) {
-    new Audio(url).play();
-  }
+
