@@ -21,7 +21,7 @@ var quizQuestions = [
 
      {
         question: "What is function?",
-        answers: ["A data type", "Recyclable snippets of code ", "A math operator", "A 3rd party API"],
+        answers: ["A data type", "Recyclable snippets of code", "A math operator", "A 3rd party API"],
         correct: "Recyclable snippets of code"
     },
 
@@ -33,7 +33,8 @@ var quizQuestions = [
 
 ]
 function addQuestionTitle() {
-    
+
+
     if(quizQuestions.length === questionNumber) {
         questionWrapper.classList.add("hide");
         return endGame();
@@ -53,6 +54,8 @@ function endGame() {
     finalTime = secondsLeft;
     clearInterval(timerInterval);
     endScreen.classList.remove("hide");
+    finalScore.textContent = finalTime;
+    renderHighScores();
 }
 
 // Handles buttons to deal with correct / incorrect answers.
@@ -62,11 +65,19 @@ function questionClickHandler(event) {
 
    if (userAnswer === quizQuestions[questionNumber].correct) {
     questionNumber++;
+    feedback.classList.remove("hide");
+    feedback.textContent = "Correct!"; // Change feedback
+    var audio = new Audio('sfx/correct.wav');
+    audio.play();
     addQuestionTitle();
    }
+
    else { 
-    //play incorrect.wav
     secondsLeft -= 5;
+    feedback.classList.remove("hide");
+    feedback.textContent = "Incorrect!";
+    var audio = new Audio('sfx/incorrect.wav');
+    audio.play();
     questionNumber++;
     addQuestionTitle();
    }

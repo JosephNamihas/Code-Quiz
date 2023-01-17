@@ -8,6 +8,7 @@ var questionTitle = document.getElementById("question-title");
 var questionChoices = document.getElementById("choices");
 var finalScore = document.getElementById("final-score")
 var enterInitials = document.getElementById("initials");
+var feedback = document.getElementById("feedback");
 var finalTime = 0;
 var playerName = "";
 var secondsLeft = 60;
@@ -37,15 +38,14 @@ startButton.addEventListener("click", function() {
         addQuestionTitle();           
 })
 
-submitButton.addEventListener("click", function(){
+submitButton.addEventListener("click", function(event){
     getPlayerNameAndScore();
 })
 
 function getPlayerNameAndScore() {
     var playerName =  enterInitials.value;
     console.log(playerName);
-    localStorage.setItem(playerName, finalTime)
-}
+    localStorage.setItem(playerName, finalTime);
 
-fetchHighscore();
+}
 
