@@ -1,6 +1,23 @@
-body {
+* {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
     text-align: center;
 }
+
+ol {
+    color: black;
+}
+li {
+    padding: 0px;
+    list-style-position: inside;
+    margin-right: 9%;
+    background-color: #563d7c;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
 
 
