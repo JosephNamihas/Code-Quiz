@@ -51,11 +51,11 @@ function addQuestionTitle() {
 }
 
 function endGame() {
+    quizQuestions.length === questionNumber;
     finalTime = secondsLeft;
     clearInterval(timerInterval);
     endScreen.classList.remove("hide");
     finalScore.textContent = finalTime;
-    renderHighScores();
 }
 
 // Handles buttons to deal with correct / incorrect answers.
