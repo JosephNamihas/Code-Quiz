@@ -17,6 +17,7 @@ let timerInterval;
 
 questionChoices.addEventListener("click", questionClickHandler)
 
+// Timer for Quiz
 function setTimer() {
     timerInterval = setInterval(function() {
         secondsLeft--;
@@ -30,6 +31,7 @@ function setTimer() {
     }, 1000)
 }
 
+// Initital start button to start the quiz, timer and question flow
 startButton.addEventListener("click", function() {
 
     setTimer();
@@ -38,6 +40,7 @@ startButton.addEventListener("click", function() {
         addQuestionTitle();           
 })
 
+// Gets the player score at the end of the quiz when they type in their initials. Saves to localStorage
 submitButton.addEventListener("click", function(event){
     getPlayerNameAndScore();
 })

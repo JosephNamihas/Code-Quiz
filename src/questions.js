@@ -1,4 +1,5 @@
 // Array of Objects 
+// 5 Objects to return the question, answers and correct answer.
 
 var quizQuestions = [
      {
@@ -32,9 +33,9 @@ var quizQuestions = [
     },
 
 ]
+
+// Renders the question and choices to the screen.
 function addQuestionTitle() {
-
-
     if(quizQuestions.length === questionNumber) {
         questionWrapper.classList.add("hide");
         return endGame();
@@ -44,14 +45,15 @@ function addQuestionTitle() {
     questionChoices.innerHTML = "";
 
     for(var i = 0; i < quizQuestions[questionNumber].answers.length; i++) {
+        
         var btn = document.createElement("button");
         btn.textContent = quizQuestions[questionNumber].answers[i];
         questionChoices.append(btn);
     }
 }
 
+// The function called when the game is at the end. If the player runs out of time or completes the quiz
 function endGame() {
-    quizQuestions.length === questionNumber;
     finalTime = secondsLeft;
     clearInterval(timerInterval);
     endScreen.classList.remove("hide");
@@ -59,6 +61,7 @@ function endGame() {
 }
 
 // Handles buttons to deal with correct / incorrect answers.
+// Provides visual and audio feedback
 
 function questionClickHandler(event) {
    var userAnswer = event.target.textContent;    

@@ -1,4 +1,6 @@
 var highScoreList = document.getElementById("highscores");
+
+// Returns the localStorage elements
 renderHighScores();
 function renderHighScores() {
 
@@ -9,6 +11,7 @@ function renderHighScores() {
     }
 }
 
+// button to clear scores from localStorage upon refresh
 var clearScores = document.getElementById("clear");
 
 clearScores.addEventListener("click", function() {

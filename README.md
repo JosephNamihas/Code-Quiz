@@ -13,7 +13,7 @@ It had to include the following:
 - A highscore leaderboard
 
 I really enjoyed this challenge and while I was stuck on a few elements, I believe I produced a respectable finished quiz.
-The quiz is fully functional and feature rich with no errors to speak of. It provides the user with five questions, sequentially delivered by making use of the Document Object Model. 
+The quiz is fully functional and feature rich with no errors to speak of (There are a few bugs at the moment). It provides the user with five questions, sequentially delivered by making use of the Document Object Model. 
 Upon completion of the quiz, the user has a chance to add their initials and submit to the highscore board.
 
 ## Challenges Faced
@@ -28,9 +28,6 @@ Collaboration in this sense is important. I like to believe I provided some idea
 This was quite frustrating as my initial theory of simply loading to localStorage and then getting the values back when needed didn't turn out to be ideal. As it comes back as an object, it was difficult to tally up the two values I wanted. Unfortuantly, this was the only part of the challenge that let me down. The highscore table is working technically, but not in the manner I would have liked. It logs the inititals and the score, but fails to load them descending order and in a list format. 
 
 I felt like I would have had to rewrite a lot of my functions to come up with a new soloution. If I had more time, I would probably investigate the JSON.Stringify / Parse methods. Play around with them to see what I could develop.
-
-### Testing
-Test more. Try out different scenarios. I discovered a bug very late on in the day and had to scramble to fix it!
 
 ### For Next Time
 I was happy with a lot of my code. Time is definitley the main enemy with these assignments. I feel like a lot of my learning comes outside of the main lectures. I need to play around with the new concepts before they fully sink in. I want to dedicate a bit more time to this over the rest of the bootcamp to avoid deadline pressure and worrying about if I had understood something or not.
